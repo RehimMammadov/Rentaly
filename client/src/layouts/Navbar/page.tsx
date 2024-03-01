@@ -74,7 +74,7 @@ export const Navbar: React.FC = () => {
                 <HiBars4 className="text-3xl cursor-pointer fill-white" id="bars" onClick={handleToggleOpenMenu} style={{ display: "none" }} />
             </div>
         </nav>
-        <nav style={{top: isOpen ? "116px" : "-725px"}} id="sidebar" className="w-full bg-neutral-800">
+        <nav style={{top: isOpen ? "116px" : "-100%"}} id="sidebar" className="w-full bg-neutral-800">
             <ul className="text-white flex flex-col gap-6">
                 {
                     navbarData && navbarData.map((navbar) => (

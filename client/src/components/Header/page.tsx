@@ -12,7 +12,7 @@ export const Header: React.FC = () => {
       <Swiper color="#1ecb15" spaceBetween={30} pagination={{ clickable: true, }} modules={[Pagination]} className="mySwiper" >
         <SwiperSlide className="slider-1">
           <div>
-            <button>Rent Now</button>
+              <button>Rent Now</button>
           </div>
         </SwiperSlide>
         <SwiperSlide className="slider-2">
