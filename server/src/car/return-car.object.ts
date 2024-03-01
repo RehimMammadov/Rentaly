@@ -1,0 +1,31 @@
+import { Prisma } from "@prisma/client";
+
+export const returnCarObject: Prisma.CarModelSelect = {
+    id: true,
+    title: true,
+    engine: true,
+    transmision: true,
+    supercharger: true,
+    power: true,
+    torque: true,
+    maxSpeed: true,
+    acceleration: true,
+    fuel: true,
+    condition: true,
+    color: true,
+    colorImage: true,
+    imageUrls: true,
+    price: true,
+    description: true,
+    dailyRentPrice: true,
+    weeklyRentPrice: true,
+    monthlyRentPrice: true,
+    isAvailable: true,
+    brand: true,
+    brandId: false,
+    body: true,
+    bodyId: false,
+    parts: true,
+    orderItems: true,
+    reviews: true
+}

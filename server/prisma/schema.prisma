@@ -1,0 +1,198 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+model User {
+  id Int @default(autoincrement()) @id
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  fullName String @map("fullname")
+  email String @unique
+  phone String @default("")
+  isActive Boolean @default(true) @map("is_active")
+  driverLicense String @map("driver_license")
+  avatarPath String @default("/uploads/default-avatar.png") @map("avatar_path")
+  password String
+  orders Order[]
+  reviews Review[]
+  favourites CarPart[]
+}
+
+model Category {
+  id Int @default(autoincrement()) @id
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  title String 
+  parts CarPart[]
+}
+
+model CarBody {
+  id Int @default(autoincrement()) @id
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  title String?
+  image String?
+  cars CarModel[]
+  parts CarPart[]
+}
+
+model CarBrand {
+  id Int @default(autoincrement()) @id
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  title String?
+  logo String?
+  cars CarModel[]
+  parts CarPart[]
+}
+
+model CarPart {
+  id Int @default(autoincrement()) @id
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  title String?
+  slug String @unique
+  description String
+  price String?
+  images String[]
+  category Category? @relation(fields: [categoryId], references: [id])
+  categoryId Int? @map("category_id")
+  body CarBody? @relation(fields: [bodyId], references: [id])
+  bodyId Int? @map("body_id")
+  brand CarBrand? @relation(fields: [brandId], references: [id])
+  brandId Int? @map("brand_id")
+  model CarModel? @relation(fields: [modelId], references: [id])
+  modelId Int? @map("model_id")
+  user User? @relation(fields: [userId], references: [id])
+  userId Int? @map("user_id")
+  orderItems OrderItem[]
+  reviews Review[]
+}
+
+model CarModel {
+  id Int @default(autoincrement()) @id
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  title String
+  engine Float
+  transmision String
+  supercharger String
+  power Int
+  torque Int
+  maxSpeed Int
+  acceleration Float
+  fuel String
+  condition String
+  color String
+  colorImage String
+  imageUrls String
+  price Int
+  description String
+  dailyRentPrice Int
+  weeklyRentPrice Int
+  monthlyRentPrice Int
+  isAvailable Boolean @default(true)
+  brand CarBrand? @relation(fields: [brandId], references: [id])
+  brandId Int? @map("brand_id")
+  body CarBody? @relation(fields: [bodyId], references: [id])
+  bodyId Int? @map("body_id")
+  parts CarPart[]
+  orderItems OrderItem[]
+  reviews Review[]
+}
+
+model Contact {
+  id Int @default(autoincrement()) @id
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  fullName String?
+  email String?
+  phone String?
+  subject String
+  message String
+}
+
+model Review {
+  id Int @id @default(autoincrement())
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @map("updated_at")
+  rating Int
+  text String
+  user User? @relation(fields: [userId], references: [id])
+  userId Int? @map("user_id")
+  model CarModel? @relation(fields: [modelId], references: [id])
+  modelId Int? @map("model_id")
+  part CarPart? @relation(fields: [partId], references: [id])
+  partId Int? @map("part_id")
+}
+
+model Order {
+  id Int @id @default(autoincrement())
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @map("updated_at")
+  status EnumOrderStatus @default(PENDING)
+  item OrderItem[]
+  user User? @relation(fields: [userId], references: [id])
+  userId Int? @map("user_id")
+}
+
+model OrderItem {
+  id Int @id @default(autoincrement())
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @map("updated_at")
+  quantity Int
+  price Int
+  Order Order? @relation(fields: [orderId], references: [id])
+  orderId Int?  @map("order_id")
+  model CarModel? @relation(fields: [modelId], references: [id])
+  modelId Int? @map("model_id")
+  part CarPart? @relation(fields: [partId], references: [id])
+  partId Int? @map("part_id")
+}
+
+model RentalyLogo {
+  id Int @id @default(autoincrement())
+  creacreatedAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @map("updated_at")
+  image String?
+}
+
+model RentalyNavbarContent {
+  id Int @id @default(autoincrement())
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @map("updated_at")
+  title String
+  link String?
+}
+
+model RentalyFooterContent {
+  id Int @id @default(autoincrement())
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @map("updated_at")
+  title String
+}
+
+model RentalyChooseContent {
+  id Int @id @default(autoincrement())
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @map("updated_at")
+  title String?
+  content String
+  image String?
+}
+
+enum EnumOrderStatus {
+  PENDING
+  PAYED
+  SHIPPED 
+  DELIVERED
+}
