@@ -48,7 +48,6 @@
         <a href="https://www.prisma.io/" target="_blank" rel="noreferrer"> 
             <img src="https://www.svgrepo.com/show/374002/prisma.svg" alt="prisma" width="72" height="72"/> 
         </a>
-      <br>Prisma
     </td>
     <td align="center" width="144">
         <a href="https://www.postgresql.org/" target="_blank" rel="noreferrer"> 
