@@ -159,6 +159,15 @@ model OrderItem {
   partId Int? @map("part_id")
 }
 
+model Statistics {
+  id Int @id @default(autoincrement())
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @map("updated_at")
+  quantity Int
+  title String?
+  info String
+}
+
 model RentalyLogo {
   id Int @id @default(autoincrement())
   creacreatedAt DateTime @default(now()) @map("created_at")

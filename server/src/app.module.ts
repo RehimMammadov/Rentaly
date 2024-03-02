@@ -18,9 +18,10 @@ import { PaginationModule } from './pagination/pagination.module';
 import { CloudinaryModule } from './cloudinary/cloudinary.module';
 import { MulterModule } from '@nestjs/platform-express';
 import { ChooseModule } from './choose/choose.module';
+import { StatisticsModule } from './statistics/statistics.module';
 
 @Module({
-  imports: [ConfigModule.forRoot(), AuthModule, UserModule, MulterModule.register({ dest: './uploads' }), PartModule, CarModule, CategoryModule, BodyModule, BrandModule, ContactModule, ReviewModule, OrderModule, LogoModule, NavbarModule, FooterModule, PaginationModule, CloudinaryModule, ChooseModule],
+  imports: [ConfigModule.forRoot(), AuthModule, UserModule, MulterModule.register({ dest: './uploads' }), PartModule, CarModule, CategoryModule, BodyModule, BrandModule, ContactModule, ReviewModule, OrderModule, LogoModule, NavbarModule, FooterModule, PaginationModule, CloudinaryModule, ChooseModule, StatisticsModule],
   controllers: [],
   providers: [PrismaService],
 })

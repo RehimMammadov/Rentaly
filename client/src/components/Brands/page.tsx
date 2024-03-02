@@ -34,7 +34,7 @@ export const CarBrands: React.FC = () => {
                   src={brand.logo}
                   alt=""
                 />
-                <h3 className="mt-2 font-semibold">{brand.title}</h3>
+                {/* <h3 className="mt-2 font-semibold">{brand.title}</h3> */}
               </div>
             </Link>
           ))}
