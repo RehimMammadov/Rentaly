@@ -1,0 +1,13 @@
+@media screen and (max-width: 1050px) {
+    footer {
+        padding: 20px !important;
+        padding-top: 60px !important;
+    }
+
+    #footer-main {
+        flex-direction: column;
+        width: 245px;
+        gap: 40px;
+        padding-top: 70px;
+    }
+}

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React, { useEffect } from "react";
 
 export const VideoComponent: React.FC = () => {
@@ -16,7 +17,7 @@ export const VideoComponent: React.FC = () => {
             <li>You get 24/7 roadside assistance.</li>
             <li>We fix 4 out of 5 cars at the roadside.</li>
           </ul>
-          <button className="w-[175px] h-[65px] rounded-2xl mt-8 text-2xl font-medium text-white transition duration-400 bg-[#1ECB15] hover:bg-[#14B8A6]">Get Started</button>
+          <Link href={"/contact"}><button className="w-[175px] h-[65px] rounded-2xl mt-8 text-2xl font-medium text-white transition duration-400 bg-[#1ECB15] hover:bg-[#14B8A6]">Contact Us</button></Link>
         </div>
       </div>
     </section>

@@ -11,7 +11,12 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      
+      backgroundColor: {
+        'rgba-white-10': 'rgba(255, 255, 255, 0.1)',
+      },
+      boxShadow: {
+        'first-shadow': 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px'
+      }
     },
   },
   plugins: [],

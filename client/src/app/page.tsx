@@ -4,6 +4,7 @@ import { Header } from "@/components/Header/page";
 import { RentorBuyComponent } from "@/components/RentBuy/page";
 import { Statistics } from "@/components/Statistics/page";
 import { VideoComponent } from "@/components/Video/page";
+import { Footer } from "@/layouts/Footer/page";
 import { Navbar } from "@/layouts/Navbar/page";
 
 export default function Home() {
@@ -14,8 +15,9 @@ export default function Home() {
       <CarBrands />
       <Choose />
       <VideoComponent />
-      <RentorBuyComponent />
       <Statistics />
+      <RentorBuyComponent />
+      <Footer />
     </>
   );
 }
