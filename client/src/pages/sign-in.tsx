@@ -13,7 +13,7 @@ const SignIn = () => {
         <Script async defer crossOrigin="anonymous" src="https://connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v19.0&appId=your-app-id" nonce="QbeAfdzA" />
         <Navbar />
             <div style={{backgroundImage: "url('https://images7.alphacoders.com/129/1291186.jpg')"}} className="w-full h-[100vh] bg-top bg-no-repeat bg-cover flex items-center justify-center">
-                <div className="w-[450px] h-[350px] bg-white rounded-xl p-7 flex flex-col gap-4">
+                <form className="w-[450px] bg-white rounded-xl p-7 flex flex-col gap-4">
                     <h2 className="text-2xl font-medium">Login</h2>
                     <input style={{ boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;" }} className="w-full p-3 rounded-md" type="text" placeholder="Enter your email" />
                     <input style={{ boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;" }} className="w-full p-3 rounded-md" type="text" placeholder="Enter your password" />
@@ -32,7 +32,7 @@ const SignIn = () => {
                             <div className="fb-login-button" data-width="180px" data-size="" data-button-type="" data-layout="" data-auto-logout-link="true" data-use-continue-as="true"></div>
                         </div>
                     </FacebookProvider>
-                </div>
+                </form>
             </div>
         <Footer />
     </>
