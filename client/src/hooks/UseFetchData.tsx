@@ -1,12 +1,13 @@
 import { api } from '@/api/api';
+import { UrlFetchInterFace } from '@/interfaces/url-fetch.interface';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-interface UseFetchDataProps {
-  baseUrl: string;
-}
+// interface UseFetchDataProps {
+//   baseUrl: string;
+// }
 
-const UseFetchData = ({ baseUrl }: UseFetchDataProps) => {
+const UseFetchData = ({ baseUrl }: UrlFetchInterFace) => {
   const [data, setData] = useState<Array<any>>([]);
 
   const fetchData = async () => {
